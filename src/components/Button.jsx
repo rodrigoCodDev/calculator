@@ -2,10 +2,20 @@ import React, { Component } from 'react'
 import './Button.css'
 
 class Button extends Component {
-    state = {  } 
+    state = {  }
+
     render() { 
+        let classes = 'button '
+        classes += this.props.operation ? 'operation ' : '' 
+        classes += this.props.double ? 'double ' : ''
+        classes += this.props.triple ? 'triple' : ''
+        
         return (
-            <button>{this.props.label}</button>
+            <button 
+                onClick={e => this.props.click && this.props.click (this.props.label)}
+                className={classes}>
+                {this.props.label}
+            </button>
         );
     }
 }
